@@ -7,11 +7,16 @@ import style from './App.module.scss';
 
 function App() {                        //is  ITasks or array vazio
     const [tasks, setTasks] = useState<ITasks[] | []>([]);
-  
+    const [select, setSelect] = useState<ITasks>();
+
+    function selectTask(taskSelect: ITasks){
+          selectTask(taskSelect);
+    }
+
   return (
     <div className={style.AppStyle}>
       <Forms setTasks={setTasks} />
-      <List tasks={tasks} />
+      <List tasks={tasks}  selectTask={selectTask}/>
       <Stopwatch/>
     </div>
   );
