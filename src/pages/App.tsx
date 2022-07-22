@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Forms from '../components/Forms/Forms';
 import List from '../components/List/List';
 import Stopwatch from '../components/Stopwatch/Stopwatch';
+import { ITasks } from '../types/Task';
 import style from './App.module.scss';
 
-function App() {
+function App() {                        //is  ITasks or array vazio
+    const [tasks, setTasks] = useState<ITasks[] | []>([]);
+  
   return (
     <div className={style.AppStyle}>
-      <Forms />
-      <List />
+      <Forms setTasks={setTasks} />
+      <List tasks={tasks} />
       <Stopwatch/>
     </div>
   );
 }
+
 
 export default App;
