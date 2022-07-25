@@ -1,5 +1,5 @@
 import { ITasks } from '../../../types/Task';
-import style from '../List.module.scss';
+import style from './Item.module.scss';
 
 
 interface Props extends ITasks {
@@ -9,11 +9,10 @@ interface Props extends ITasks {
 
 export default function Item({task, time, select, filled, id, selectTask}: Props) {
 
-  //console.log('item atual:', {task, time, select, filled, id});
-
-    return(
+  return(
         <li  
-        className={style.item} 
+        className={`${style.item} ${select ? style.
+        itemSelecionado : ''}`} 
         onClick={() => selectTask(
         {
           task,
