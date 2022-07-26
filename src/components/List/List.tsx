@@ -8,7 +8,6 @@ interface Props{
   selectTask: (taskSelect: ITasks) => void
 }
 
-
 function List ({tasks, selectTask}: Props){ 
   return (
     <aside className={style.listTasks}>
@@ -17,8 +16,6 @@ function List ({tasks, selectTask}: Props){
         {tasks.map(item => (
           <Item
           selectTask={selectTask}
-            // task={item.task}
-            // time={item.time}
             key={item.id}
             {...item}
           />

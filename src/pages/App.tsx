@@ -17,11 +17,29 @@ function App() {                        //is  ITasks or array vazio
       })));
     }
 
+    function filledTask(){
+      setSelect(undefined);
+      if(selector){
+        setTasks(tasksOld => tasksOld.map(task => {
+          if(task.id === selector.id){
+            return {
+              ...task,
+              selector: false,
+              filled: true
+            }
+          }
+          return task;
+        }))
+      }
+    }
+
   return (
     <div className={style.AppStyle}>
       <Forms setTasks={setTasks} />
       <List tasks={tasks}  selectTask={selectTask}/>
-      <Stopwatch selector={selector}/>
+      <Stopwatch 
+      selector={selector} 
+      filledTask={filledTask}/>
     </div>
   );
 }
